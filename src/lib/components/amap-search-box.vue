@@ -7,7 +7,7 @@
         v-model="keyword"
         @keyup.enter="search"
         @input="autoComplete">
-      <span class="search-btn" @click="search" >搜索</span>
+      <span class="search-btn" @click="search" >{{searchText?searchText:'搜索'}}</span>
     </div>
     <div class="search-tips">
       <ul>
@@ -94,7 +94,7 @@ import {lazyAMapApiLoaderInstance} from '../services/injected-amap-api-instance'
 export default {
   name: 'el-amap-search-box',
   mixins: [RegisterComponentMixin],
-  props: ['searchOption', 'onSearchResult', 'events', 'default'],
+  props: ['searchOption', 'onSearchResult', 'events', 'default', 'searchText'],
   data() {
     return {
       keyword: this.default || '',
